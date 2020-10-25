@@ -37,10 +37,11 @@ const StyledSlider = styled.div`
 `
 
 interface Props {
-    id: string
+    id: string,
+    startValue: number,
 }
 
-function Slider({id}: Props) {
+function Slider({id, startValue}: Props) {
     const [slideValue, setSlideValue] = useState(5);
 
     const handleChange = (e: any) => {
@@ -56,6 +57,7 @@ function Slider({id}: Props) {
                 max="1" 
                 step="0.05"
                 value={slideValue} 
+                defaultValue={startValue}
                 onChange={handleChange}
                 className="slider"
             />
