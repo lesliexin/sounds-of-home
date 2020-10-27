@@ -1,12 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import soh from "../assets/soh.png";
 import Slider from "./Slider";
 import styled from 'styled-components';
-
-const StyledRow = styled.div`
-  display: flex;
-  flex-direction: row;
-`
+import kitchen from '../assets/kitchen.mp3';
 
 const StyledCol = styled.div`
   position: absolute;
@@ -18,6 +14,9 @@ const StyledImg = styled.img`
 `
 
 function Home() {
+  // const htmlaudio: HTMLAudioElement = new Audio(require('../assets/kitchen.mp3'));
+  // htmlaudio.play();
+
   return (
       <div style={{
         width: "100%",
@@ -26,6 +25,7 @@ function Home() {
         justifyContent: "center",
         zIndex: -1,
       }}>
+        <audio style={{zIndex: 10}} src={kitchen} controls/>
         <StyledImg
           alt="sounds of home"
           src={soh}
@@ -34,37 +34,42 @@ function Home() {
           bottom: "10vh",
           left: "10vh",
         }}>
-          <Slider id={"1"} startValue={0.5}/>
+          <Slider
+            id={"1"}
+            startValue={0.5}
+            title={"Mahjong Game"}
+            soundUrl={"src/assets/kitchenTrack.mp3"}
+          />
         </StyledCol>
         <StyledCol style={{
           bottom: "10vh",
           left: "60vh",
         }}>
-          <Slider id={"1"} startValue={0.5}/>
+          <Slider id={"1"} startValue={0.5} title={"Kitchen"}/>
         </StyledCol>
         <StyledCol style={{
           bottom: "40vh",
           left: "10vh",
         }}>
-          <Slider id={"1"} startValue={0.5}/>
+          <Slider id={"1"} startValue={0.5} title={"Television"}/>
         </StyledCol>
         <StyledCol style={{
           top: "10vh",
           right: "10vh",
         }}>
-          <Slider id={"1"} startValue={0.5}/>
+          <Slider id={"1"} startValue={0.5} title={"Children at Play"}/>
         </StyledCol>
         <StyledCol style={{
           top: "10vh",
           right: "60vh",
         }}>
-          <Slider id={"1"} startValue={0.5}/>
+          <Slider id={"1"} startValue={0.5} title={"Grandma Humming"}/>
         </StyledCol>
         <StyledCol style={{
           top: "40vh",
           right: "10vh",
         }}>
-          <Slider id={"1"} startValue={0.5}/>
+          <Slider id={"1"} startValue={0.5} title={"Open Window"}/>
         </StyledCol>
       </div>
   );
