@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
 import slide from "../assets/slide.png";
 import thumb from "../assets/thumb.png";
@@ -54,12 +54,13 @@ interface Props {
     id: string,
     startValue: number,
     title: string,
-    soundUrl?: string,
+    sound?: string,
 }
 
-function Slider({id, startValue, title, soundUrl}: Props) {
+function Slider({id, startValue, title, sound}: Props) {
     const [slideValue, setSlideValue] = useState(0.5);
     const [play, setPlay] = useState(true);
+    const ref = useRef();
 
     const handleChange = (e: any) => {
         setSlideValue(e.target.value);
@@ -77,6 +78,7 @@ function Slider({id, startValue, title, soundUrl}: Props) {
 
     return (
         <StyledSlider>
+        <audio style={{zIndex: 10}} src={sound} controls/>
         <StyledTitle>{title}</StyledTitle>
             <input
                 id={id}
