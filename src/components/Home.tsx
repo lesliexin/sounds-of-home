@@ -1,11 +1,13 @@
-import React, {useEffect} from 'react';
+import React, {useState} from 'react';
 import soh from "../assets/soh.png";
 import Slider from "./Slider";
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import kitchen from '../assets/kitchen.mp3';
 import nature from '../assets/nature.mp3';
 import mahjong from '../assets/mahjong.mp3';
 import city from '../assets/city.mp3';
+import on from "../assets/on.png";
+import off from "../assets/off.png";
 
 const StyledCol = styled.div`
   position: absolute;
@@ -16,9 +18,24 @@ const StyledImg = styled.img`
   position: absolute;
 `
 
+const StyledButtonContainer = styled.div`
+  z-index: 1;
+  width: 5vh;
+  top: 2vh;
+  right: 2vh;
+  position: absolute;
+`
+
+const StyledButton = styled.img<any>`
+  z-index: 10;
+  width: 5vh;
+`
 function Home() {
-  // const htmlaudio: HTMLAudioElement = new Audio(require('../assets/kitchen.mp3'));
-  // htmlaudio.play();
+  const [play, setPlay] = useState(false);
+
+  const handleChange = (e: any) => {
+    setPlay(!play);
+};
 
   return (
       <div style={{
@@ -32,68 +49,80 @@ function Home() {
           alt="sounds of home"
           src={soh}
         />
+        <StyledButtonContainer onClick={handleChange}>
+          {play
+            ? <StyledButton alt="volume on" src={on}/> 
+            :  <StyledButton alt="volume off" src={off}/>
+          }
+        </StyledButtonContainer>
         <StyledCol style={{
           bottom: "10vh",
-          left: "10vh",
+          left: "9vw",
         }}>
           <Slider
             id={"nature"}
-            startValue={0.5}
+            startValue={0.25}
             title={"Nature"}
             sound={nature}
+            play={play}
           />
         </StyledCol>
         <StyledCol style={{
           bottom: "10vh",
-          left: "60vh",
+          left: "38vw",
         }}>
           <Slider
             id={"grandma"}
             startValue={0.5}
             title={"Grandma Humming"}
+            play={play}
           />
         </StyledCol>
         <StyledCol style={{
           bottom: "40vh",
-          left: "10vh",
+          left: "9vw",
         }}>
            <Slider
             id={"mahjong"}
-            startValue={0.5}
+            startValue={0.25}
             title={"Mahjong Game"}
             sound={mahjong}
+            play={play}
           />
         </StyledCol>
         <StyledCol style={{
           top: "10vh",
-          right: "10vh",
+          right: "9vw",
         }}>
           <Slider
             id={"television"}
             startValue={0.5}
             title={"Television"}
+            play={play}
           />
         </StyledCol>
         <StyledCol style={{
           top: "10vh",
-          right: "60vh",
+          right: "38vw",
         }}>
           <Slider
             id={"kitchen"}
-            startValue={0.5}
+            startValue={0.7}
             title={"Kitchen"}
             sound={kitchen}
+            play={play}
           />
         </StyledCol>
         <StyledCol style={{
           top: "40vh",
-          right: "10vh",
+          right: "9vw",
         }}>
           <Slider
             id={"city"}
             startValue={0.5}
             title={"City"}
             sound={city}
+            play={play}
           />
         </StyledCol>
       </div>

@@ -54,33 +54,30 @@ interface Props {
     startValue: number,
     title: string,
     sound?: string,
+    play: boolean,
 }
 
-function Slider({id, startValue, title, sound}: Props) {
-    const [slideValue, setSlideValue] = useState(0.5);
-    const [play, setPlay] = useState(true);
+function Slider({id, startValue, title, sound, play}: Props) {
+    const [slideValue, setSlideValue] = useState(startValue);
     const audioRef: any = useRef(null);
 
     const handleChange = (e: any) => {
         setSlideValue(e.target.value);
-        // audioRef.volume = slideValue;
-        // let audioComponent: any = document.getElementById("test");
-        // audioComponent!.volume = slideValue;
     };
-
-    // useEffect(() => {
-    //     let audioComponent: any = document.getElementById(id);
-    //     audioComponent!.play();
-    // }, []);
 
     useEffect(() => {
         let audioComponent: any = document.getElementById(id);
         audioComponent!.volume = slideValue;
     }, [slideValue]);
 
+    useEffect(() => {
+        let audioComponent: any = document.getElementById(id);
+        play ? audioComponent!.play() : audioComponent!.pause();
+    }, [play]);
+
     return (
         <StyledSlider>
-        <audio id={id} ref={audioRef} style={{zIndex: 10}} src={sound} controls autoPlay/>
+        <audio id={id} ref={audioRef} style={{zIndex: 10}} src={sound}/>
         <StyledTitle>{title}</StyledTitle>
             <input
                 type="range" 
