@@ -2,7 +2,6 @@ import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
 import slide from "../assets/slide.png";
 import thumb from "../assets/thumb.png";
-// import audio from '../assets/kitchenTrack.mp3';
 
 const StyledSlider = styled.div`
     z-index: 1;
@@ -60,28 +59,30 @@ interface Props {
 function Slider({id, startValue, title, sound}: Props) {
     const [slideValue, setSlideValue] = useState(0.5);
     const [play, setPlay] = useState(true);
-    const ref = useRef();
+    const audioRef: any = useRef(null);
 
     const handleChange = (e: any) => {
         setSlideValue(e.target.value);
+        // audioRef.volume = slideValue;
+        // let audioComponent: any = document.getElementById("test");
+        // audioComponent!.volume = slideValue;
     };
 
     // useEffect(() => {
-    //     let audio;
-    //     if (soundUrl) {
-    //         const audioUrl = require(`/kitchenTrack.mp3`);
-    //         audio = new Audio(audioUrl);
-    //         console.log("audio:", audio);
-    //         audio.play();
-    //     }
-    // });
+    //     let audioComponent: any = document.getElementById(id);
+    //     audioComponent!.play();
+    // }, []);
+
+    useEffect(() => {
+        let audioComponent: any = document.getElementById(id);
+        audioComponent!.volume = slideValue;
+    }, [slideValue]);
 
     return (
         <StyledSlider>
-        <audio style={{zIndex: 10}} src={sound} controls/>
+        <audio id={id} ref={audioRef} style={{zIndex: 10}} src={sound} controls autoPlay/>
         <StyledTitle>{title}</StyledTitle>
             <input
-                id={id}
                 type="range" 
                 min="0"
                 max="1" 

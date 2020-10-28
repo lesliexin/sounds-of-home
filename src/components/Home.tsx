@@ -37,10 +37,10 @@ function Home() {
           left: "10vh",
         }}>
           <Slider
-            id={"1"}
+            id={"nature"}
             startValue={0.5}
-            title={"Mahjong Game"}
-            sound={mahjong}
+            title={"Nature"}
+            sound={nature}
           />
         </StyledCol>
         <StyledCol style={{
@@ -48,7 +48,7 @@ function Home() {
           left: "60vh",
         }}>
           <Slider
-            id={"1"}
+            id={"grandma"}
             startValue={0.5}
             title={"Grandma Humming"}
           />
@@ -57,11 +57,11 @@ function Home() {
           bottom: "40vh",
           left: "10vh",
         }}>
-          <Slider
-            id={"1"}
+           <Slider
+            id={"mahjong"}
             startValue={0.5}
-            title={"Nature"}
-            sound={nature}
+            title={"Mahjong Game"}
+            sound={mahjong}
           />
         </StyledCol>
         <StyledCol style={{
@@ -69,7 +69,7 @@ function Home() {
           right: "10vh",
         }}>
           <Slider
-            id={"1"}
+            id={"television"}
             startValue={0.5}
             title={"Television"}
           />
@@ -79,7 +79,7 @@ function Home() {
           right: "60vh",
         }}>
           <Slider
-            id={"1"}
+            id={"kitchen"}
             startValue={0.5}
             title={"Kitchen"}
             sound={kitchen}
@@ -90,7 +90,7 @@ function Home() {
           right: "10vh",
         }}>
           <Slider
-            id={"1"}
+            id={"city"}
             startValue={0.5}
             title={"City"}
             sound={city}
