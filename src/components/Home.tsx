@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import soh from "../assets/soh.png";
 import Slider from "./Slider";
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import kitchen from '../assets/kitchen.mp3';
 import nature from '../assets/nature.mp3';
 import mahjong from '../assets/mahjong.mp3';
@@ -63,7 +63,7 @@ function Home() {
           <Slider
             id={"nature"}
             startValue={0.25}
-            title={"Nature"}
+            title={"Birds and Cicadas"}
             sound={nature}
             play={play}
             max={"0.7"}
@@ -75,11 +75,11 @@ function Home() {
         }}>
           <Slider
             id={"music"}
-            startValue={0.12}
+            startValue={0.10}
             title={"Radio Music"}
             sound={music}
             play={play}
-            max={"0.4"}
+            max={"0.35"}
           />
         </StyledCol>
         <StyledCol style={{

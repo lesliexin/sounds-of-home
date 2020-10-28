@@ -69,12 +69,12 @@ function Slider({id, startValue, title, sound, play, max}: Props) {
     useEffect(() => {
         let audioComponent: any = document.getElementById(id);
         audioComponent!.volume = slideValue;
-    }, [slideValue]);
+    }, [slideValue, id]);
 
     useEffect(() => {
         let audioComponent: any = document.getElementById(id);
         play ? audioComponent!.play() : audioComponent!.pause();
-    }, [play]);
+    }, [play, id]);
 
     return (
         <StyledSlider>
