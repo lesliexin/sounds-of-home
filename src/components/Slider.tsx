@@ -55,9 +55,10 @@ interface Props {
     title: string,
     sound?: string,
     play: boolean,
+    max?: string,
 }
 
-function Slider({id, startValue, title, sound, play}: Props) {
+function Slider({id, startValue, title, sound, play, max}: Props) {
     const [slideValue, setSlideValue] = useState(startValue);
     const audioRef: any = useRef(null);
 
@@ -82,7 +83,7 @@ function Slider({id, startValue, title, sound, play}: Props) {
             <input
                 type="range" 
                 min="0"
-                max="1" 
+                max={max ? max : "1"}
                 step="0.05"
                 value={slideValue} 
                 onChange={handleChange}

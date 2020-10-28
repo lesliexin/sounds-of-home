@@ -45,3 +45,22 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 # sounds-of-home
+
+
+# Audio Credits
+
+Chinese Music:
+Song: The Best Chinese Music Without Words (Beautiful Chinese Music)
+Promoted by Amazing Music.
+Original Video: https://youtu.be/N6dWQLhTkQM
+
+Cicada: https://freesound.org/people/cupido-1/sounds/529572/
+
+Nature: https://freesound.org/people/kevp888/sounds/440448/
+
+Birds: https://freesound.org/people/xserra/sounds/162105/
+
+Mahjong: https://freesound.org/people/al.barbosa/sounds/149041/
+
+Street Ambience: https://freesound.org/people/Pashee/sounds/187356/
+

@@ -6,6 +6,7 @@ import kitchen from '../assets/kitchen.mp3';
 import nature from '../assets/nature.mp3';
 import mahjong from '../assets/mahjong.mp3';
 import city from '../assets/city.mp3';
+import music from '../assets/music.mp3';
 import on from "../assets/on.png";
 import off from "../assets/off.png";
 
@@ -65,6 +66,7 @@ function Home() {
             title={"Nature"}
             sound={nature}
             play={play}
+            max={"0.7"}
           />
         </StyledCol>
         <StyledCol style={{
@@ -72,10 +74,12 @@ function Home() {
           left: "38vw",
         }}>
           <Slider
-            id={"grandma"}
-            startValue={0.5}
-            title={"Grandma Humming"}
+            id={"music"}
+            startValue={0.12}
+            title={"Radio Music"}
+            sound={music}
             play={play}
+            max={"0.4"}
           />
         </StyledCol>
         <StyledCol style={{
@@ -107,7 +111,7 @@ function Home() {
         }}>
           <Slider
             id={"kitchen"}
-            startValue={0.7}
+            startValue={0.5}
             title={"Kitchen"}
             sound={kitchen}
             play={play}
@@ -118,9 +122,9 @@ function Home() {
           right: "9vw",
         }}>
           <Slider
-            id={"city"}
+            id={"street"}
             startValue={0.5}
-            title={"City"}
+            title={"Street Ambience"}
             sound={city}
             play={play}
           />
