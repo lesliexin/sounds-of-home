@@ -68,6 +68,14 @@ function Slider({id, startValue, title, sound, play, max}: Props) {
 
     useEffect(() => {
         let audioComponent: any = document.getElementById(id);
+        audioComponent!.addEventListener('ended', function () {
+            audioComponent.currentTime = 0;
+            audioComponent!.play()
+          }, false);
+    }, []);
+
+    useEffect(() => {
+        let audioComponent: any = document.getElementById(id);
         audioComponent!.volume = slideValue;
     }, [slideValue, id]);
 
