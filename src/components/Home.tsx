@@ -25,6 +25,7 @@ const StyledButtonContainer = styled.div`
   top: 2vh;
   right: 2vh;
   position: absolute;
+  cursor: pointer;
 `
 
 const StyledButton = styled.img<any>`
