@@ -1,14 +1,21 @@
 import React, {useEffect, useRef, useState} from 'react';
-import styled from 'styled-components';
+import styled, { css } from "styled-components";
 import slide from "../assets/slide.png";
 import thumb from "../assets/thumb.png";
 
-const StyledSlider = styled.div`
-    z-index: 1;
+const StyledSlider = styled.div<any>`
+    z-index: 20;
     width: 200px;
-    display: flex;
-    flex-direction: column;
+    position: absolute;
     align-items: center;
+
+    ${(props: any) => props.posX && css`
+        left: ${props.posX};
+    `};
+
+    ${(props: any) => props.posY && css`
+        top: ${props.posY};
+    `};
 
     .slider {
         width: 200px;
@@ -49,6 +56,17 @@ const StyledTitle = styled.div`
     margin-bottom: 8px;
 `
 
+const StyledImg = styled.img<any>`
+    height: 80vh;
+    margin-top: 10vh;
+    position: absolute;
+    opacity: 0;
+
+    ${(props: any) => props.opacity && css`
+        opacity: ${props.opacity};
+    `};
+`
+
 interface Props {
     id: string,
     startValue: number,
@@ -56,9 +74,11 @@ interface Props {
     sound?: string,
     play: boolean,
     max?: string,
+    image?: string,
+    position: {top: string, left: string},
 }
 
-function Slider({id, startValue, title, sound, play, max}: Props) {
+function Slider({id, startValue, title, sound, play, max="1", image, position}: Props) {
     const [slideValue, setSlideValue] = useState(startValue);
     const audioRef: any = useRef(null);
 
@@ -85,19 +105,29 @@ function Slider({id, startValue, title, sound, play, max}: Props) {
     }, [play, id]);
 
     return (
-        <StyledSlider>
-        <audio id={id} ref={audioRef} style={{zIndex: 10}} src={sound}/>
-        <StyledTitle>{title}</StyledTitle>
-            <input
-                type="range" 
-                min="0"
-                max={max ? max : "1"}
-                step="0.05"
-                value={slideValue} 
-                onChange={handleChange}
-                className="slider"
+        <>
+            <StyledImg
+                alt="image"
+                src={image}
+                opacity={slideValue/Number(max)}
             />
-        </StyledSlider>
+            <StyledSlider
+                posX={position.left}
+                posY={position.top}
+            >
+                <audio id={id} ref={audioRef} style={{zIndex: 10}} src={sound}/>
+                <StyledTitle>{title}</StyledTitle>
+                    <input
+                        type="range" 
+                        min="0"
+                        max={max ? max : "1"}
+                        step="0.01"
+                        value={slideValue} 
+                        onChange={handleChange}
+                        className="slider"
+                    />
+            </StyledSlider>
+        </>
     );
 }
 
