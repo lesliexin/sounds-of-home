@@ -21,7 +21,7 @@ const StyledCol = styled.div`
 
 const StyledImg = styled.img`
   height: 80vh;
-  margin-top: 10vh;
+  margin-top: 12vh;
   position: absolute;
   z-index: 10;
 `
@@ -39,6 +39,15 @@ const StyledButton = styled.img<any>`
   z-index: 10;
   width: 5vh;
 `
+
+const StyledTitle = styled.div<any>`
+  color: #D20E00;
+  font-weight: bold;
+  font-size: 34px;
+  letter-spacing: 1.5px;
+  margin-top: 6vh;
+`
+
 function Home() {
   const [play, setPlay] = useState(false);
 
@@ -56,7 +65,7 @@ function Home() {
         zIndex: -1,
         backgroundColor: "#F7F1DE",
       }}>
-        <h1 style={{color: "#D20E00"}}>Sounds of Home</h1>
+        <StyledTitle>Sounds of Home</StyledTitle>
         <StyledImg
           alt="sounds of home"
           src={base}
@@ -77,7 +86,7 @@ function Home() {
             play={play}
             max={"0.7"}
             image={natureImg}
-            position={{top: '45vh', left: '83vw'}}
+            position={{top: '48vh', left: '81vw'}}
           />
 
           {/* Radio */}
@@ -111,7 +120,7 @@ function Home() {
             sound={kitchen}
             play={play}
             image={kitchenImg}
-            position={{top: '12vh', left: '74vw'}}
+            position={{top: '16vh', left: '77vw'}}
           />
 
           {/* Ambience */}
@@ -122,7 +131,7 @@ function Home() {
             sound={city}
             play={play}
             image={cityImg}
-            position={{top: '31vh', left: '4vw'}}
+            position={{top: '31vh', left: '6vw'}}
           />
       </div>
   );

@@ -5,8 +5,10 @@ import thumb from "../assets/thumb.png";
 
 const StyledSlider = styled.div<any>`
     z-index: 20;
-    width: 200px;
+    width: 190px;
     position: absolute;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 
     ${(props: any) => props.posX && css`
@@ -18,13 +20,13 @@ const StyledSlider = styled.div<any>`
     `};
 
     .slider {
-        width: 200px;
+        width: 190px;
         height: auto;
         -webkit-appearance: none;
         border-radius: 5px;
         outline: none;
         background: url(${slide}) no-repeat;
-        background-size: 200px;
+        background-size: 190px;
 
 
         &::-webkit-slider-thumb {
@@ -48,17 +50,16 @@ const StyledSlider = styled.div<any>`
 `
 
 const StyledTitle = styled.div`
-    font-size: 14px;
+    font-size: 16px;
     color: #D20E00;
     font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    letter-spacing: 1.2px;
     margin-bottom: 8px;
 `
 
 const StyledImg = styled.img<any>`
     height: 80vh;
-    margin-top: 10vh;
+    margin-top: 12vh;
     position: absolute;
     opacity: 0;
 
