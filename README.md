@@ -1,7 +1,5 @@
 # Sounds of Home 🎧🏠
 
-Generally, culture is shared through photos, or movies, or stories, or food—but these mediums are usually carefully edited and curated. Oftentimes the intricacies of our own unique cultural experiences become lost in communication. My goal is to share a candid, mundane glimpse into the everyday. [Step into my home](http://www.soundsofhome.ca/)... 
-
 ![Alt text](src/assets/sohReadme.png?raw=true "Title")
 
 # How Sounds of Home was built
