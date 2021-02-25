@@ -15,15 +15,20 @@ import music from '../assets/music.mp3';
 import on from "../assets/on.png";
 import off from "../assets/off.png";
 
-const StyledCol = styled.div`
-  position: absolute;
-`
-
 const StyledImg = styled.img`
   height: 80vh;
   margin-top: 12vh;
   position: absolute;
   z-index: 10;
+
+  @media (max-width: 768px) {
+    height: 50vh;
+  } 
+
+  @media (max-width: 425px) {
+    width: 90vw;
+    height: auto;
+  } 
 `
 
 const StyledButtonContainer = styled.div`
@@ -46,6 +51,14 @@ const StyledTitle = styled.div<any>`
   font-size: 34px;
   letter-spacing: 1.5px;
   margin-top: 6vh;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+  } 
+
+  @media (max-width: 425px) {
+    font-size: 24px;
+  } 
 `
 
 function Home() {
@@ -80,58 +93,58 @@ function Home() {
           {/* Nature */}
           <Slider
             id={"nature"}
-            startValue={0.25}
+            startValue={0.15}
             title={"Birds and Cicadas"}
             sound={nature}
             play={play}
             max={"0.7"}
             image={natureImg}
-            position={{top: '48vh', left: '81vw'}}
+            position={{top: '48vh', left: '81vw', mobile: '70vh'}}
           />
 
           {/* Radio */}
           <Slider
             id={"music"}
-            startValue={0.10}
+            startValue={0.08}
             title={"Radio Music"}
             sound={music}
             play={play}
             max={"0.35"}
             image={radioImg}
-            position={{top: '64vh', left: '6vw'}}
+            position={{top: '64vh', left: '6vw', mobile: '80vh'}}
           />
 
           {/* Mahjong */}
            <Slider
             id={"mahjong"}
-            startValue={0.25}
+            startValue={0.18}
             title={"Mahjong Game"}
             sound={mahjong}
             play={play}
             image={mahjongImg}
-            position={{top: '84vh', left: '80vw'}}
+            position={{top: '84vh', left: '80vw', mobile: '90vh'}}
           />
 
           {/* Kitchen */}
           <Slider
             id={"kitchen"}
-            startValue={0.5}
+            startValue={0.4}
             title={"Kitchen"}
             sound={kitchen}
             play={play}
             image={kitchenImg}
-            position={{top: '16vh', left: '77vw'}}
+            position={{top: '16vh', left: '77vw', mobile: '50vh'}}
           />
 
           {/* Ambience */}
           <Slider
             id={"street"}
-            startValue={0.5}
+            startValue={0.4}
             title={"Street Ambience"}
             sound={city}
             play={play}
             image={cityImg}
-            position={{top: '31vh', left: '6vw'}}
+            position={{top: '31vh', left: '6vw', mobile: '60vh'}}
           />
       </div>
   );

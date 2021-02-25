@@ -19,6 +19,14 @@ const StyledSlider = styled.div<any>`
         top: ${props.posY};
     `};
 
+    @media (max-width: 425px) {
+        left: 10vw;
+        
+        ${(props: any) => props.posY && css`
+            top: ${props.mobile};
+        `};
+    } 
+
     .slider {
         width: 190px;
         height: auto;
@@ -55,6 +63,10 @@ const StyledTitle = styled.div`
     font-weight: 700;
     letter-spacing: 1.2px;
     margin-bottom: 8px;
+
+    @media (max-width: 425px) {
+        font-size: 14px;
+    } 
 `
 
 const StyledImg = styled.img<any>`
@@ -62,6 +74,15 @@ const StyledImg = styled.img<any>`
     margin-top: 12vh;
     position: absolute;
     opacity: 0;
+
+    @media (max-width: 768px) {
+        height: 50vh;
+    } 
+
+    @media (max-width: 425px) {
+        width: 90vw;
+        height: auto;
+    } 
 
     ${(props: any) => props.opacity && css`
         opacity: ${props.opacity};
@@ -76,7 +97,7 @@ interface Props {
     play: boolean,
     max?: string,
     image?: string,
-    position: {top: string, left: string},
+    position: {top: string, left: string, mobile: string},
 }
 
 function Slider({id, startValue, title, sound, play, max="1", image, position}: Props) {
@@ -115,6 +136,7 @@ function Slider({id, startValue, title, sound, play, max="1", image, position}: 
             <StyledSlider
                 posX={position.left}
                 posY={position.top}
+                mobile={position.mobile}
             >
                 <audio id={id} ref={audioRef} style={{zIndex: 10}} src={sound}/>
                 <StyledTitle>{title}</StyledTitle>
